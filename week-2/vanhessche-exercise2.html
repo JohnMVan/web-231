@@ -1,0 +1,35 @@
+<!--
+    Title: vanhessche-exercise2.html
+    Author: John Vanhessche
+    Date: 6/5/2022
+    Description: HTML file for exercise 2.2
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../global.css">
+    <title>Exercise 2.2</title>
+</head>
+<body>
+    <h1>Exercise 2.2 - Hello JavaScript</h1>
+    <button type="button" id="btnMyCourse">What Course am taking?</button>
+    <p id="txtMyWorld">here</p>
+    <a class="return-home" href="../index.html">Return</a>
+
+
+    <script>
+        //changes innerText of paragraph
+        document.getElementById("txtMyWorld").innerHTML = "Welcome to Vanhessche's world!";
+
+        //creates window alert upon button click.
+        document.querySelector("#btnMyCourse").addEventListener("click", function() {
+            alert("Web 231 - Enterprise JavaScript I");
+        })
+    </script>
+    
+</body>    
+</html>

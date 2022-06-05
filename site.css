@@ -1,3 +1,11 @@
+/*
+    Title: site.css
+    Author: John Vanhessche
+    Date: 5/29/2022
+    Description: site.css file for index.html landing page
+*/
+
+
 body {
     font-family: 'Oswald', Verdana, Arial, sans-serif;
 }
@@ -22,4 +30,8 @@ a {
 
 a:visited {
     text-decoration: #3C275A;
+}
+
+.record {
+    border: 1px dotted red;
 }
