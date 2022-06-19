@@ -48,7 +48,7 @@
     <script>   
         //Creates a random number after the window loads.  The only way I could figure to do this was set the variable in local storage.  This way I can access it the btnSubmit
         //function later on.  For the life of me, I couldn't figure out how to access the rnd variable outside the scope of the onLoad function.  This will also allow the user
-        //to continue making guesses until the get the correct number.
+        //to continue making guesses until the get the correct number.  I used window.onLoad to ensure the html loads all the way before kicking off the function.
 
         window.onload = function(){
             const rnd = Math.floor((Math.random() * 10) + 1);
