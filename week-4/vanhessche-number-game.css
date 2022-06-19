@@ -1,0 +1,11 @@
+/*
+    Title: vanhessche-number-game.css
+    Author:  John Vanhessche
+    Date: 6/18/2022
+    Description:  This is the .css file for additional styling on the vanhessche-number-game.html.  This is for assignment 4.2.
+*/
+
+#results {
+    text-align: center;
+    font-size: 28px;
+}
