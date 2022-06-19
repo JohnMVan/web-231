@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="vanhessche-number-game.css"/>
     <link rel="stylesheet" type="text/css" href="../global.css" />
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet" />
-    <title>Document</title>
+    <title>Numbers Game</title>
 </head>
 <body>
     <!--Main div container for the program.  All other html code will be inside this container.-->
@@ -46,24 +46,28 @@
         <a class="return-home" href="../index.html">Return</a>               
     </div>  
     <script>   
-        //Creates a random number after the window loads.  This code works, but I can't access the rnd variable out of the function's scope.  For the life of my,
-        //I can't figure out how to do this, then pass the rnd variable to the subsequent function.
+        //Creates a random number after the window loads.  The only way I could figure to do this was set the variable in local storage.  This way I can access it the btnSubmit
+        //function later on.  For the life of me, I couldn't figure out how to access the rnd variable outside the scope of the onLoad function.  This will also allow the user
+        //to continue making guesses until the get the correct number.
 
-        //window.onload = function(){const rnd = Math.floor((Math.random() * 10) + 1);}
+        window.onload = function(){
+            const rnd = Math.floor((Math.random() * 10) + 1);
+            localStorage.setItem("randNum", rnd);
+        }
 
         //This is the function to compare the numbers. First do a check that the input is valid, if not let the user know, if so, proceed with the check.  Need to 
-        //parse the myNumber to an integer.
+        //parse the myNumber to an integer.  Using local variable rndNum and retrieving rnd value from local storage.
         
         document.getElementById("btnSubmit").onclick = function(){
-            const rnd = Math.floor((Math.random() * 10) + 1);
+            const rndNum = parseInt(localStorage.getItem("randNum"));
             let myNumber = parseInt(document.getElementById("txtMyNumber").value);
             if (myNumber < 1 || myNumber > 10 || !Number.isInteger(myNumber)) {
                 document.getElementById("results").innerHTML = `Not a valid number.  Pick a number between 1 and 10.`;
             } else {
-                    if(rnd < myNumber) {
+                    if(myNumber < rndNum) {
+                    document.getElementById("results").innerHTML = `The number is greater than ${myNumber}.`;
+                } else if (myNumber > rndNum) {
                     document.getElementById("results").innerHTML = `The number is less than ${myNumber}.`;
-                } else if (rnd > myNumber) {
-                    document.getElementById("results").innerHTML = `The number is more than ${myNumber}.`;
                 } else {
                     document.getElementById("results").innerHTML = `Congratulations!  You picked the correct number!`;
                 }
