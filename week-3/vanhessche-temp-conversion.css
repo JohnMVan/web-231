@@ -4,10 +4,7 @@
 
 
 /* for class font family */
-body {
-    margin: 0;
-    font-family: 'Oswald', Verdana, Arial, sans-serif;
+#results {
     text-align: center;
     font-size: 28px;
 }
-

@@ -20,31 +20,30 @@
     <div id="container">
         <!-- This is the container for the input area-->
         <h1 class="app-header">Welcome to the Temperature Conversion App!</h1>
-        <div class="card">
-            <div class="card-title">Fahrenheit to Celsius Converter</div>
-            <div class="card-content">
-                <div class="form">
-                    <div class="form-field">
-                        <label for="txtFahrenheit">Fahrenheit value:</label>
-                        <!-- Capturing input in function below.  See script-->
-                        <input type="text" class="input" id="txtFahrenheit" name="txtFahrenheit"/>
+        <div id="form-example">
+            <div class="card">
+                <div class="card-title">Fahrenheit to Celsius Converter</div>
+                <div class="card-content">
+                    <div class="form">
+                        <div class="form-field">
+                            <label for="txtFahrenheit">Fahrenheit value:</label>                            
+                            <input type="text" class="input" id="txtFahrenheit" name="txtFahrenheit"/>
+                        </div>
+                        <div class="form-field">
+                            <button class="btn btn-primary full-width" id="btnSubmit">Convert Temperature</button>
+                        </div>                    
                     </div>
-                    <div class="form-field">
-                        <button class="btn-primary full-width" id="btnSubmit">Convert Temperature</button>
-                    </div>                    
                 </div>
             </div>
-        </div>
-        <br><br>
-        <!-- This is the container for the output area-->        
-        <div id="form-results">
+        </div> 
+        <div id="form-results-example">
             <div class="card">
                 <div class = "card-title">Conversion Results</div>
                 <div class = "card-content" id ="results"></div>
             </div>                     
         </div>
         <br><br>
-        <a href="../index.html">Return</a>
+        <a class="return-home" href="../index.html">Return</a>
     </div>
     <script>
         //Capturing the input in txtFahrenheit when user clicks on button, then assigning to fahrenheit variable.  Then converting fahrenheit variable to celsius.  

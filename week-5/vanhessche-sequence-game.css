@@ -1,0 +1,11 @@
+/*
+    Title: vanhessche-sequence-game.css
+    Author:  John Vanhessche
+    Date: 6/22/2022
+    Description:  This is the .css file for additional styling on the vanhessche-sequence-game.html.  This is for assignment 5.2.
+*/
+
+#results {
+    text-align: center;
+    font-size: 28px;
+}
