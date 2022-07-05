@@ -1,0 +1,32 @@
+/*
+    Title: vanhessche-in-n-out-books.css
+    Author: John Vanhessche
+    Date: 6/27/2022
+    Description: For additional styling on assignment 6.2.
+*/
+
+/*Added table, th, td, and tr styling as per the instructions to match expected table output.  This is in addition to the global.css styling*/
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+th {
+    padding: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4F3674;
+    color: white;
+    border: 1px solid #ddd;
+}
+
+td {
+    border: 1px solid #ddd;
+}
+
+tr:hover {
+    background-color: #D6A800;
+    color: #4F3674;
+    cursor: pointer;
+}

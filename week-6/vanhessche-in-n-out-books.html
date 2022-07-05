@@ -1,0 +1,153 @@
+<!--
+    Title: vanhessche-in-n-out-books.html
+    Author: John Vanhessche
+    Date: 6/27/2022
+    Description: This is the html page for assignment 6.2.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./vanhessche-in-n-out-books.css"/>
+    <link rel="stylesheet" type="text/css" href="../global.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <title>In-N-Out-Books</title>
+</head>
+<body>
+    <!--Main div container for the program.  All other html code will be inside this container.-->
+    <div id="container">
+        <h1 class="app-header">Welcome to In-N-Out Books</h1>
+        <div id="form-example">                 <!--This is the container for the form-->
+            <div class="card">
+                <div class="card-title">My Favorites</div>
+                <div class="card-content">
+                    <div class="form">
+                        <div class="form-field">
+                            <label for="favoriteList">Choose Listing</label>
+                            <select id="favoriteList" class="drop-down-menu">
+                                <option value="select">--Select--</option>
+                                <option value="books">Top 3 Favorite Books</option>
+                                <option value="authors">Top 3 Favorite Authors</option>
+                            </select>
+                        </div>                        
+                        <div class="form-field">
+                            <button class="btn btn-primary full-width" id="btnDisplayListing">Display Listing</button>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+            <br>
+            <a class="return-home" href="../index.html">Return</a>
+        </div>
+        <div id="form-results-example">          <!--This is the container for the results-->
+            <div class="card">
+                <div id="favorite-books">
+                    <div class="card-title">Top 3 Favorite Books</div>
+                    <table>
+                        <tr>
+                            <th>ISBN</th>
+                            <th>Title</th>
+                            <th>Pages</th>
+                        </tr>                    
+                        <tr>
+                            <td id="txtTheStandIsbn"></td>
+                            <td id="txtTheStandTitle"></td>
+                            <td id="txtTheStandPages"></td>
+                        </tr>
+                        <tr>
+                            <td id="txtTheForgottenIsbn"></td>
+                            <td id="txtTheForgottenTitle"></td>
+                            <td id="txtTheForgottenPages"></td>
+                        </tr>
+                        <tr>
+                            <td id="txtTakenForARideIsbn"></td>
+                            <td id="txtTakenForARideTitle"></td>
+                            <td id="txtTakenForARidePages"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="favorite-authors">
+                    <div class="card-title">Top 3 Favorite Authors</div>
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Genre</th>                            
+                        </tr>                    
+                        <tr>
+                            <td id="txtStephenKingName"></td>
+                            <td id="txtStephenKingGenre"></td>
+                        </tr>
+                        <tr>
+                            <td id="txtTomClanceyName"></td>
+                            <td id="txtTomClanceyGenre"></td>
+                        </tr>
+                        <tr>
+                            <td id="txtDeanKoontzName"></td>
+                            <td id="txtDeanKoontzGenre">genre 3</td>
+                        </tr>
+                    </table>
+                </div>                
+            </div>
+        </div>
+    </div>  
+    <script>
+
+        //Declaration of book and author objects. Variable naming convention follow object title, for the most part.  
+        //Used const instead of let as I understand this is more common with object declaration. 
+        //Just put them all on one line due to the short length, and it looked cleaner to me. 
+        const bookTheStand = {isbn: 9780385121682, title: "The Stand", pages: 823};
+        const bookTheForgotten = {isbn: 9780451224958, title: "The Forgotten 500", pages: 336};
+        const bookTakenRide = {isbn: 9780060934484, title: "Taken for a Ride", pages: 432};
+        const authorStephenKing = {name: "Stephen King", genre: "Horror"};
+        const authorTomClancey = {name: "Tom Clancey", genre: "Techno-Thriller"};
+        const authorDeanKoontz = {name: "Dean Koontz", genre: "Suspense"};
+        
+        //declaration of books and authors variables to set table display to none on initial page load.
+        let books = document.getElementById("favorite-books");
+        books.style.display="none";
+        let authors = document.getElementById("favorite-authors");
+        authors.style.display="none";
+
+        //Data and table binding for favorite books.  Binding object data to table based on td id's. 
+        document.getElementById("txtTheStandIsbn").innerHTML = bookTheStand.isbn;
+        document.getElementById("txtTheStandTitle").innerHTML = bookTheStand.title;
+        document.getElementById("txtTheStandPages").innerHTML = bookTheStand.pages;
+        //
+        document.getElementById("txtTheForgottenIsbn").innerHTML = bookTheForgotten.isbn;
+        document.getElementById("txtTheForgottenTitle").innerHTML = bookTheForgotten.title;
+        document.getElementById("txtTheForgottenPages").innerHTML = bookTheForgotten.pages;
+        //
+        document.getElementById("txtTakenForARideIsbn").innerHTML = bookTakenRide.isbn;
+        document.getElementById("txtTakenForARideTitle").innerHTML = bookTakenRide.title;
+        document.getElementById("txtTakenForARidePages").innerHTML = bookTakenRide.pages;
+        
+        //Data and table binding for favorite authors.  
+        document.getElementById("txtStephenKingName").innerHTML = authorStephenKing.name;
+        document.getElementById("txtStephenKingGenre").innerHTML = authorStephenKing.genre;
+        //
+        document.getElementById("txtTomClanceyName").innerHTML = authorTomClancey.name;
+        document.getElementById("txtTomClanceyGenre").innerHTML = authorTomClancey.genre;  
+        //
+        document.getElementById("txtDeanKoontzName").innerHTML = authorDeanKoontz.name;
+        document.getElementById("txtDeanKoontzGenre").innerHTML = authorDeanKoontz.genre;
+
+        //Onclick function to enable/disable table display based on user selection.
+        document.getElementById("btnDisplayListing").onclick = function() {
+            let choice = document.getElementById("favoriteList").value;
+            if (choice == "books") {
+                books.style.display="block";
+                authors.style.display="none";                
+            } else if (choice == "authors") {
+                books.style.display="none";
+                authors.style.display="block";
+            } else {                                //I debated using an else if then testing for --Select--, and using else to   
+                books.style.display="none";         //capture any other invalid selections.  But decided just to use else, since 
+                authors.style.display="none";       // --Select-- is an invalid selection, and I didn't like how the two 
+            }                                       //statement blocks repeated each other.
+        };
+    </script>  
+</body>
+</html>
