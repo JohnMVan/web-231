@@ -1,0 +1,87 @@
+<!--
+    Title: vanhessche-alphabet-game.html
+    Author: John Vanhessche
+    Date: 7/12/2022
+    Description: This is the html file for the Alphabet Game project, assignment 8.2
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./vanhessche-alphabet-game.css"/>
+    <link rel="stylesheet" type="text/css" href="../global.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <title>Alphabet Game</title>
+</head>
+<body>
+    <!--Main div container for the program.  All other html code will be inside this container.-->
+    <div id="container">
+        <h1 class="app-header">Welcome to the Alphabet Game!</h1>
+        <div id="form-example">                 <!--This is the container for the form-->
+            <div class="card">
+                <div class="card-title">Alphabet Number Form</div>
+                <div class="card-content">
+                    <div class="form">
+                        <div class="form-field">
+                            <label for="txtPosition">Alphabet Letter Position</label>
+                            <input type="text" class="input" id="txtPosition" name="myName"/>
+                        </div>                        
+                        <div class="form-field">
+                            <button class="btn btn-primary full-width" id="btnFindLetter">Find Letter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <a class="return-home" href="../index.html">Return</a>
+        </div>
+        <div id="form-results-example">          <!--This is the container for the listing of letters-->
+            <div class="card">
+                <div class="card-title">Letters in the Alphabet</div>
+                <div class="card-content" id="alphaOutput"></div>
+            </div>
+        </div>
+        <div id="alphabet">          <!--This is the container for the placement results-->
+            <div class="card">
+                <div class="card-title">Results</div>
+                <div class="card-content" id="results"></div>
+            </div>
+        </div>        
+    </div>  
+    <script>
+        //Creating an array of letters in the English alphabet
+        const alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+        
+        //Empty string for output of array.
+        let alphabetOutput = "";
+
+        //Array iteration to return alphaOutput div results
+        for (let i in alphabet) {
+            alphabetOutput += alphabet[i] + ", ";
+        }
+        document.getElementById("alphaOutput").innerHTML=alphabetOutput.slice(0, -2);
+
+        //Button click function.  Capture user input and compare against alphabet array.  
+        document.getElementById("btnFindLetter").onclick = function (){
+            let pos = document.getElementById("txtPosition").value;
+            let letter = alphabet[pos - 1];
+
+            //Check to see if input position is undefined in array, otherwise return the letter at the position.  
+            //Added additional check for letter input to return index position.  Slicing input to just one character.
+            if(letter === undefined && /[a-zA-Z]/.test(pos) != true) {
+                document.getElementById("results").innerHTML=`There are not ${pos} letters in the alphabet.`;
+            }
+            else if (/[a-zA-Z]/.test(pos)===true){
+                let choice = (pos.toUpperCase()).slice(0, 1);
+                document.getElementById("results").innerHTML=`${choice} is at position ${alphabet.indexOf(choice)+1} in the alphabet.`;
+            }
+            else {
+                document.getElementById("results").innerHTML=`${letter} is at position ${pos} in the alphabet.`;
+            };
+        }
+    </script>  
+</body>
+</html>
