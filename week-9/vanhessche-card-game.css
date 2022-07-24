@@ -1,0 +1,17 @@
+/*
+    Title: vanhessche-alphabet-game.css
+    Author:  John Vanhessche
+    Date: 7/18/2022
+    Description:  This is the .css file for additional styling on the vanhessche-card-game.html.  This is for assignment 9.2.
+*/
+
+#player-card-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;       
+    padding: 10px;
+    gap: 10px;
+}
+
+player-card {
+    text-align: center;
+}
